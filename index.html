@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!--
+      Need a visual blank slate?
+      Remove all code in `styles.css`!
+    -->
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav>
+      <a href="/" aria-current="page">Home</a>
+    </nav>
+    <main>
+      <h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600">Insurance Calculator</h1>
+      <input type="number" id="age" placeholder="Enter your age" />
+      <button class= "px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800" id="calculateBtn">Calculate</button>
+      <button id="clearBtn" class=" px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800">Clear</button>
+    <p id="displayResult" class="py-2" style="display: none"></p>
+    </main>
+        <script type="text/javascript">
+          $(document).ready(function () {
+            $('#calculateBtn').click(function () {
+              let age = $('#age').val();
+              let rate = 5 * age + 300;
+              $('#displayResult')
+                .text(
+                  'Your Life Insurance Rate is $' + Number(rate) + ' per year'
+                )
+                .fadeIn(1000);
+            });
+            $('#clearBtn').click(function () {
+              $('#displayResult ').fadeOut(1000, function () {
+                $('#age').val('');
+                $('#displayResult').empty();
+              });
+            });
+          });
+        </script>
+    
+    </html>
+  </body>
+</html>
